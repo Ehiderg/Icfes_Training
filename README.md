@@ -1,16 +1,42 @@
-# React + Vite
+# ICFES Training — Saber 11
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Plataforma de entrenamiento para el examen ICFES Saber 11. Practica con preguntas estilo oficial, revisa tu progreso y recibe análisis personalizado por área.
 
-Currently, two official plugins are available:
+**[Abrir la app](https://ehiderg.github.io/Icfes_Training/)**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Características
 
-## React Compiler
+- **Simulacro completo** — 254 preguntas distribuidas igual que el Saber 11 oficial (Jornada 1: Lectura Crítica + Matemáticas · Jornada 2: Ciencias + Sociales + Inglés)
+- **Test por área** — práctica enfocada en una asignatura a la vez
+- **Test rápido** — 10 preguntas aleatorias (~15 min)
+- **Historial persistente** — guarda todos tus simulacros en el dispositivo y muestra evolución de puntajes
+- **Coach personalizado** — analiza qué áreas subir para alcanzar tu meta de puntaje
+- **Retroalimentación inmediata** — explicación de cada respuesta correcta
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Áreas cubiertas
 
-## Expanding the Oxlint configuration
+| Área | Preguntas (simulacro completo) |
+|------|-------------------------------|
+| Lectura Crítica | 41 |
+| Matemáticas | 50 |
+| Ciencias Naturales | 58 |
+| Sociales y Ciudadanas | 50 |
+| Inglés | 55 |
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+## Stack
+
+- React 19 + Vite 5
+- React Router 7 (HashRouter para GitHub Pages)
+- Tailwind CSS 3
+- Recharts
+
+## Desarrollo local
+
+```bash
+npm install
+npm run dev
+```
+
+## Deploy
+
+El sitio se despliega automáticamente en GitHub Pages con cada push a `main` via GitHub Actions.
