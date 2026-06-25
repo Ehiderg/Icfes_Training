@@ -1,0 +1,239 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─────────────────────────────────────────
+   RESET & BASE
+   ───────────────────────────────────────── */
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, sans-serif;
+  background: #f8fafc;
+  color: #1e293b;
+  -webkit-font-smoothing: antialiased;
+}
+
+#root { min-height: 100vh; }
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #f1f5f9; }
+::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+/* ─────────────────────────────────────────
+   3D CARD TILT
+   ───────────────────────────────────────── */
+.card-3d {
+  transform-style: preserve-3d;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  will-change: transform;
+}
+
+.card-3d:hover {
+  box-shadow:
+    0 20px 40px rgba(99,102,241,0.12),
+    0 8px 16px rgba(0,0,0,0.08);
+}
+
+/* ─────────────────────────────────────────
+   OPTION BUTTON — 3D PRESS
+   ───────────────────────────────────────── */
+.option-btn {
+  transition: transform 0.12s ease, box-shadow 0.12s ease, background-color 0.15s ease;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.option-btn:hover:not(:disabled) {
+  transform: translateX(3px) scale(1.005);
+  box-shadow: 0 6px 16px rgba(99,102,241,0.15);
+}
+
+.option-btn:active:not(:disabled) {
+  transform: translateX(1px) scale(0.995);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+
+/* ─────────────────────────────────────────
+   CORRECT / INCORRECT ANIMATIONS
+   ───────────────────────────────────────── */
+@keyframes correctPop {
+  0%   { transform: scale(1); }
+  30%  { transform: scale(1.05) translateX(4px); }
+  60%  { transform: scale(1.025) translateX(2px); }
+  100% { transform: scale(1) translateX(3px); }
+}
+
+@keyframes wrongShake {
+  0%, 100% { transform: translateX(0); }
+  15%  { transform: translateX(-8px); }
+  30%  { transform: translateX(8px); }
+  45%  { transform: translateX(-6px); }
+  60%  { transform: translateX(6px); }
+  75%  { transform: translateX(-3px); }
+}
+
+.option-correct-anim { animation: correctPop 0.45s ease-out forwards; }
+.option-wrong-anim   { animation: wrongShake 0.5s ease-out forwards; }
+
+/* ─────────────────────────────────────────
+   PAGE TRANSITIONS
+   ───────────────────────────────────────── */
+@keyframes pageSlideUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes bounceIn {
+  0%  { transform: scale(0.94); opacity: 0; }
+  55% { transform: scale(1.03); }
+  100%{ transform: scale(1); opacity: 1; }
+}
+
+@keyframes spinIn {
+  from { opacity: 0; transform: rotateY(-90deg) scale(0.8); }
+  to   { opacity: 1; transform: rotateY(0deg) scale(1); }
+}
+
+.animate-page { animation: pageSlideUp 0.35s ease-out; }
+.animate-fade-in { animation: fadeIn 0.25s ease-in-out; }
+.animate-slide-up { animation: slideUp 0.25s ease-out; }
+.animate-bounce-in { animation: bounceIn 0.4s ease-out; }
+.animate-spin-in { animation: spinIn 0.5s ease-out; }
+
+/* ─────────────────────────────────────────
+   STAGGERED ENTRANCE
+   ───────────────────────────────────────── */
+.stagger-1 { animation: slideUp 0.3s ease-out 0.05s both; }
+.stagger-2 { animation: slideUp 0.3s ease-out 0.12s both; }
+.stagger-3 { animation: slideUp 0.3s ease-out 0.19s both; }
+.stagger-4 { animation: slideUp 0.3s ease-out 0.26s both; }
+.stagger-5 { animation: slideUp 0.3s ease-out 0.33s both; }
+
+/* ─────────────────────────────────────────
+   HERO GRADIENT ANIMATION
+   ───────────────────────────────────────── */
+@keyframes gradientShift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animated-gradient {
+  background: linear-gradient(-45deg, #4f46e5, #7c3aed, #2563eb, #0ea5e9, #4f46e5);
+  background-size: 300% 300%;
+  animation: gradientShift 8s ease infinite;
+}
+
+/* ─────────────────────────────────────────
+   PULSE GLOW
+   ───────────────────────────────────────── */
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(99,102,241,0.4); }
+  50%       { box-shadow: 0 0 0 12px rgba(99,102,241,0); }
+}
+.pulse-glow { animation: pulseGlow 2s ease-in-out infinite; }
+
+/* ─────────────────────────────────────────
+   FLOATING PARTICLE
+   ───────────────────────────────────────── */
+@keyframes floatUp {
+  0%   { opacity: 1; transform: translateY(0) scale(1); }
+  100% { opacity: 0; transform: translateY(-80px) scale(0.5); }
+}
+
+.particle {
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  animation: floatUp 1s ease-out forwards;
+  font-size: 1.5rem;
+  user-select: none;
+}
+
+/* ─────────────────────────────────────────
+   SCORE CIRCLE SVG
+   ───────────────────────────────────────── */
+@keyframes dashFill {
+  from { stroke-dashoffset: 339.3; }
+}
+
+.score-circle-path {
+  animation: dashFill 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* ─────────────────────────────────────────
+   3D FLIP (for answer reveal)
+   ───────────────────────────────────────── */
+@keyframes flipReveal {
+  0%   { transform: perspective(800px) rotateX(0deg); }
+  40%  { transform: perspective(800px) rotateX(-8deg); }
+  100% { transform: perspective(800px) rotateX(0deg); }
+}
+
+.flip-reveal { animation: flipReveal 0.4s ease-out; }
+
+/* ─────────────────────────────────────────
+   RIPPLE EFFECT
+   ───────────────────────────────────────── */
+@keyframes ripple {
+  to { transform: scale(4); opacity: 0; }
+}
+
+.ripple-container { position: relative; overflow: hidden; }
+.ripple-effect {
+  position: absolute;
+  border-radius: 50%;
+  transform: scale(0);
+  background: rgba(255,255,255,0.4);
+  animation: ripple 0.6s linear;
+  pointer-events: none;
+}
+
+/* ─────────────────────────────────────────
+   PASSAGE TEXT
+   ───────────────────────────────────────── */
+.passage-text {
+  line-height: 1.85;
+  font-size: 0.94rem;
+  color: #374151;
+}
+
+/* ─────────────────────────────────────────
+   TIMER PULSE
+   ───────────────────────────────────────── */
+@keyframes timerPulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.7; }
+}
+.timer-pulse { animation: timerPulse 1s ease-in-out infinite; }
+
+/* ─────────────────────────────────────────
+   COUNTER ANIMATION
+   ───────────────────────────────────────── */
+@keyframes countUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to   { transform: translateY(0); opacity: 1; }
+}
+.count-up { animation: countUp 0.6s ease-out; }
+
+/* ─────────────────────────────────────────
+   GLASS MORPHISM
+   ───────────────────────────────────────── */
+.glass {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.25);
+}
