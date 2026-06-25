@@ -127,8 +127,8 @@ export const NEW_QUESTIONS_MAT = [
     difficulty: 'difícil',
     question: 'Usando las propiedades de logaritmos, simplifica: log₂(8) + log₂(4) − log₂(16)',
     options: { A: '0', B: '1', C: '2', D: '3' },
-    correct: 'C',
-    explanation: 'log₂(8) = 3, log₂(4) = 2, log₂(16) = 4. Entonces 3 + 2 − 4 = 1. Espera, revisando: 3 + 2 − 4 = 1. La respuesta correcta es B = 1. Usando propiedades: log₂(8×4/16) = log₂(32/16) = log₂(2) = 1. Correcto: B.',
+    correct: 'B',
+    explanation: 'log₂(8) = 3, log₂(4) = 2, log₂(16) = 4. Entonces 3 + 2 − 4 = 1. Usando propiedades: log₂(8×4/16) = log₂(32/16) = log₂(2) = 1.',
   },
 
   // ─── POLINOMIOS Y FACTORIZACIÓN (5) ─────────────────────
