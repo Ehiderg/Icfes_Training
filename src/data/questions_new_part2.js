@@ -62,7 +62,7 @@ export const NEW_QUESTIONS_MAT = [
     difficulty: 'medio',
     question: 'Andrés compró 2,5 metros de tela a $8.400 el metro y 1,75 metros de otra tela a $6.200 el metro. ¿Cuánto pagó en total?',
     options: { A: '$28.550', B: '$29.350', C: '$31.850', D: '$32.150' },
-    correct: 'B',
+    correct: 'C',
     explanation: 'Primera tela: 2,5 × $8.400 = $21.000. Segunda tela: 1,75 × $6.200 = $10.850. Total: $21.000 + $10.850 = $31.850. Espera: $10.850. Verificar: 1,75 × 6200 = 1 × 6200 + 0,75 × 6200 = 6200 + 4650 = 10850. Total = 21000 + 10850 = $31.850. La respuesta correcta es C.',
   },
   // Nota: la pregunta mat_25 tiene la respuesta C = $31.850
